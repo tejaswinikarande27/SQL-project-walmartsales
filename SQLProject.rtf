@@ -1,0 +1,171 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\b\f0\fs22\lang9 Walmart Sales Data Analysis\b0\par
+\par
+\b About\b0\par
+\par
+This project aims to explore the Walmart Sales data to understand top performing branches and products, sales trend of of different products, customer behaviour. The aims is to study how sales strategies can be improved and optimized. The dataset was obtained from the [Kaggle Walmart Sales Forecasting Competition](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting).\par
+\par
+"In this recruiting competition, job-seekers are provided with historical sales data for 45 Walmart stores located in different regions. Each store contains many departments, and participants must project the sales for each department in each store. To add to the challenge, selected holiday markdown events are included in the dataset. These markdowns are known to affect sales, but it is challenging to predict which departments are affected and the extent of the impact." [source](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting)\par
+\par
+\b Purposes Of The Project\par
+\b0\par
+The major aim of thie project is to gain insight into the sales data of Walmart to understand the different factors that affect sales of the different branches.\par
+\b\par
+About Data\par
+\b0\par
+The dataset was obtained from the [Kaggle Walmart Sales Forecasting Competition](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting). This dataset contains sales transactions from a three different branches of Walmart, respectively located in Mandalay, Yangon and Naypyitaw. The data contains 17 columns and 1000 rows:\par
+\par
+| Column                  | Description                             | Data Type      |\par
+| :---------------------- | :-------------------------------------- | :------------- |\par
+| invoice_id              | Invoice of the sales made               | VARCHAR(30)    |\par
+| branch                  | Branch at which sales were made         | VARCHAR(5)     |\par
+| city                    | The location of the branch              | VARCHAR(30)    |\par
+| customer_type           | The type of the customer                | VARCHAR(30)    |\par
+| gender                  | Gender of the customer making purchase  | VARCHAR(10)    |\par
+| product_line            | Product line of the product solf        | VARCHAR(100)   |\par
+| unit_price              | The price of each product               | DECIMAL(10, 2) |\par
+| quantity                | The amount of the product sold          | INT            |\par
+| VAT                 | The amount of tax on the purchase       | FLOAT(6, 4)    |\par
+| total                   | The total cost of the purchase          | DECIMAL(10, 2) |\par
+| date                    | The date on which the purchase was made | DATE           |\par
+| time                    | The time at which the purchase was made | TIMESTAMP      |\par
+| payment_method                 | The total amount paid                   | DECIMAL(10, 2) |\par
+| cogs                    | Cost Of Goods sold                      | DECIMAL(10, 2) |\par
+| gross_margin_percentage | Gross margin percentage                 | FLOAT(11, 9)   |\par
+| gross_income            | Gross Income                            | DECIMAL(10, 2) |\par
+| rating                  | Rating                                  | FLOAT(2, 1)    |\par
+\par
+\b Analysis List\b0\par
+\par
+\b 1. Product Analysis\b0\par
+\par
+> Conduct analysis on the data to understand the different product lines, the products lines performing best and the product lines that need to be improved.\par
+\par
+\b 2. Sales Analysis\b0\par
+\par
+> This analysis aims to answer the question of the sales trends of product. The result of this can help use measure the effectiveness of each sales strategy the business applies and what modificatoins are needed to gain more sales.\par
+\b\par
+3. Customer Analysis\par
+\b0\par
+> This analysis aims to uncover the different customers segments, purchase trends and the profitability of each customer segment.\par
+\b Approach Used\b0\par
+\par
+1. **Data Wrangling:** This is the first step where inspection of data is done to make sure **NULL** values and missing values are detected and data replacement methods are used to replace, missing or **NULL** values.\par
+\par
+> 1. Build a database\par
+> 2. Create table and insert the data.\par
+> 3. Select columns with null values in them. There are no null values in our database as in creating the tables, we set **NOT NULL** for each field, hence null values are filtered out.\par
+\par
+2. **Feature Engineering:** This will help use generate some new columns from existing ones.\par
+\par
+> 1. Add a new column named `time_of_day` to give insight of sales in the Morning, Afternoon and Evening. This will help answer the question on which part of the day most sales are made.\par
+\par
+> 2. Add a new column named `day_name` that contains the extracted days of the week on which the given transaction took place (Mon, Tue, Wed, Thur, Fri). This will help answer the question on which week of the day each branch is busiest.\par
+\par
+> 3. Add a new column named `month_name` that contains the extracted months of the year on which the given transaction took place (Jan, Feb, Mar). Help determine which month of the year has the most sales and profit.\par
+\par
+2. **Exploratory Data Analysis (EDA):** Exploratory data analysis is done to answer the listed questions and aims of this project.\par
+\par
+3. **Conclusion:**\par
+\par
+## Business Questions To Answer\par
+\par
+### Generic Question\par
+\par
+1. How many unique cities does the data have?\par
+2. In which city is each branch?\par
+\par
+### Product\par
+\par
+1. How many unique product lines does the data have?\par
+2. What is the most common payment method?\par
+3. What is the most selling product line?\par
+4. What is the total revenue by month?\par
+5. What month had the largest COGS?\par
+6. What product line had the largest revenue?\par
+5. What is the city with the largest revenue?\par
+6. What product line had the largest VAT?\par
+7. Fetch each product line and add a column to those product line showing "Good", "Bad". Good if its greater than average sales\par
+8. Which branch sold more products than average product sold?\par
+9. What is the most common product line by gender?\par
+12. What is the average rating of each product line?\par
+\par
+\b Sales\b0\par
+\par
+1. Number of sales made in each time of the day per weekday\par
+2. Which of the customer types brings the most revenue?\par
+3. Which city has the largest tax percent/ VAT (**Value Added Tax**)?\par
+4. Which customer type pays the most in VAT?\par
+\par
+\b Customer\b0\par
+\par
+1. How many unique customer types does the data have?\par
+2. How many unique payment methods does the data have?\par
+3. What is the most common customer type?\par
+4. Which customer type buys the most?\par
+5. What is the gender of most of the customers?\par
+6. What is the gender distribution per branch?\par
+7. Which time of the day do customers give most ratings?\par
+8. Which time of the day do customers give most ratings per branch?\par
+9. Which day fo the week has the best avg ratings?\par
+10. Which day of the week has the best average ratings per branch?\par
+\par
+\b Revenue And Profit Calculations\b0\par
+\par
+$ COGS = unitsPrice * quantity $\par
+\par
+$ VAT = 5\\% * COGS $\par
+\par
+$VAT$ is added to the $COGS$ and this is what is billed to the customer.\par
+\par
+$ total(gross_sales) = VAT + COGS $\par
+\par
+$ grossProfit(grossIncome) = total(gross_sales) - COGS $\par
+\par
+**Gross Margin** is gross profit expressed in percentage of the total(gross profit/revenue)\par
+\par
+$ \\text\{Gross Margin\} = \\frac\{\\text\{gross income\}\}\{\\text\{total revenue\}\} $\par
+\par
+<u>**Example with the first row in our DB:**</u>\par
+\par
+**Data given:**\par
+\par
+- $ \\text\{Unite Price\} = 45.79 $\par
+- $ \\text\{Quantity\} = 7 $\par
+\par
+$ COGS = 45.79 * 7 = 320.53 $\par
+\par
+$ \\text\{VAT\} = 5\\% * COGS\\\\= 5\\%  320.53 = 16.0265 $\par
+\par
+$ total = VAT + COGS\\\\= 16.0265 + 320.53 = $336.5565$\par
+\par
+$ \\text\{Gross Margin Percentage\} = \\frac\{\\text\{gross income\}\}\{\\text\{total revenue\}\}\\\\=\\frac\{16.0265\}\{336.5565\} = 0.047619\\\\\\approx 4.7619\\% $\par
+\par
+```sql\par
+-- Create database\par
+CREATE DATABASE IF NOT EXISTS walmartSales;\par
+\par
+-- Create table\par
+CREATE TABLE IF NOT EXISTS sales(\par
+\tab invoice_id VARCHAR(30) NOT NULL PRIMARY KEY,\par
+    branch VARCHAR(5) NOT NULL,\par
+    city VARCHAR(30) NOT NULL,\par
+    customer_type VARCHAR(30) NOT NULL,\par
+    gender VARCHAR(30) NOT NULL,\par
+    product_line VARCHAR(100) NOT NULL,\par
+    unit_price DECIMAL(10,2) NOT NULL,\par
+    quantity INT NOT NULL,\par
+    tax_pct FLOAT(6,4) NOT NULL,\par
+    total DECIMAL(12, 4) NOT NULL,\par
+    date DATETIME NOT NULL,\par
+    time TIME NOT NULL,\par
+    payment VARCHAR(15) NOT NULL,\par
+    cogs DECIMAL(10,2) NOT NULL,\par
+    gross_margin_pct FLOAT(11,9),\par
+    gross_income DECIMAL(12, 4),\par
+    rating FLOAT(2, 1)\par
+);\par
+```\par
+}
+ 
